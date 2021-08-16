@@ -1,12 +1,12 @@
 
-var wordCounter = $('.this-word');
-var textCounter = $('.text-to-count').text();
-var letterCounter = $('.letter-couter')
+var wordCounterRecever = $('.word-counter');
+var letterCounterRecever = $('.letter-couter')
 var typer = $('#typer')
-
-
 
 typer.on('input', function(){
     var typervalue = typer.val()
-    letterCounter.text(typervalue.length)
+    letterCounterRecever.text(typervalue.length)
+
+    var wordCount = typervalue.split(' ').length
+    console.log(wordCount)
 })
