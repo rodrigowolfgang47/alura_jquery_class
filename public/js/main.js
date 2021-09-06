@@ -1,11 +1,15 @@
-var wordCounterRecever = $('.word-counter');
-var letterCounterRecever = $('.letter-couter')
-var typer = $('#typer')
+var wordCounterRecever = $('.word-couter'),
+letterCounterRecever = $('.letter-couter'),
+typer = $('#typer');
 
 typer.on('input', function () {
-    var typervalue = typer.val()
-    letterCounterRecever.text(typervalue.length)
+    var typervalue = typer.val();
 
-    var wordCount = typervalue.split(' ').length
-    console.log(wordCount)
-})
+    typervalueletter = typervalue.replace(/\s+/g, "");
+
+    letterCounterRecever.text(typervalueletter.length);
+
+    var wordCount = typervalue.split(/\S+/).length - 1;
+    wordCounterRecever.text(wordCount);
+    console.log(wordCount);
+});
