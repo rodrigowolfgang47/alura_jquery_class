@@ -1,9 +1,11 @@
+// I got the variables here
 var wordCounterRecever = $('.word-couter'),
     letterCounterRecever = $('.letter-couter'),
     typer = $('#typer'),
     seconds = $('.seconds'),
     secondsCounter = seconds.text()
 
+// I created a word and caracteres counter
 typer.on('input', function () {
     var typervalue = typer.val();
 
@@ -16,7 +18,9 @@ typer.on('input', function () {
     console.log(wordCount);
 });
 
-typer.on('click', function(){
+// starts here the second counter
+
+typer.one('input', function(){
 
     var conterInterval = setInterval(function(){
         secondsCounter--;
