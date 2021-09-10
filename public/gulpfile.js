@@ -1,18 +1,18 @@
-var gulp = require('gulp'),
-sass = require('gulp-sass')(require('sass')),
-concat = require('gulp-concat');
+import { task, src, dest, watch, series } from 'gulp';
+var sass = require('gulp-sass')(require('sass'));
+import concat from 'gulp-concat';
 
-gulp.task('compilar', function(){
-  return gulp.src(['*.sass', 'sass/*.sass'])
+task('compilar', function(){
+  return src(['*.sass', 'sass/*.sass'])
   .pipe(sass().on('error', function(err){
     console.log(err)
   }))
   .pipe(concat('style.css'))
-  .pipe(gulp.dest('css'))
+  .pipe(dest('css'))
 });
 
-gulp.task('monitorar', function(){
-  gulp.watch(['*.sass', 'sass/*.sass'], gulp.series('compilar'));
+task('monitorar', function(){
+  watch(['*.sass', 'sass/*.sass'], series('compilar'));
 });
 
-gulp.task('default', gulp.series('monitorar'));
+task('default', series('monitorar'));
