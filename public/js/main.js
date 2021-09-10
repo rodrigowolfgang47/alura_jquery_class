@@ -41,7 +41,7 @@ function startsCounter() {
                 clearInterval(counterInterval)
                 resetGame();
             });
-        }, 1000);
+        }, 2000);
     });
 }
 
